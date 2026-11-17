@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BREW & BLOOM | Coffee, Conversations & Comfort</title>
+<meta name="description" content="Discover Brew & Bloom, your cozy cafe in Kuniyamuthur, Coimbatore. Enjoy specialty coffee, handcrafted desserts and delicious bites.">
+
+<style>
+:root {
+  --brand: #B78355;
+  --brand-dark: #3B2922;
+  --ink: #30251F;
+  --paper: #FAF6F0;
+  --muted: #83766D;
+  --white: #FFFFFF;
+  --cream: #F0E5D8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  transition: background .3s, color .3s;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 7%;
+  border-bottom: 1px solid #eee5dc;
+  gap: 15px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--brand-dark);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--brand);
+}
+
+nav ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+nav ul a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color .3s;
+}
+
+nav ul a:hover {
+  color: var(--brand);
+}
+
+/* DARK MODE BUTTON */
+
+.theme-toggle {
+  padding: 9px 15px;
+  border: 1px solid var(--brand);
+  border-radius: 25px;
+  background: var(--paper);
+  color: var(--brand-dark);
+  cursor: pointer;
+  font-weight: 700;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 590px;
+  padding: 100px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background:
+    linear-gradient(rgba(35,24,19,.68),rgba(35,24,19,.72)),
+    url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85')
+    center/cover no-repeat;
+}
+
+.hero-content {
+  max-width: 780px;
+  animation: rise .8s ease both;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #E8C7A5;
+  letter-spacing: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 66px);
+  line-height: 1.15;
+  margin-bottom: 22px;
+  font-family: Georgia, serif;
+}
+
+.hero p {
+  max-width: 610px;
+  margin: 0 auto 32px;
+  font-size: 17px;
+  color: #F5EDE5;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 27px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all .3s;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #98663F;
+  transform: translateY(-3px);
+}
+
+.btn-outline {
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--brand-dark);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 85px 7%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading .eyebrow {
+  color: var(--brand);
+  margin-bottom: 8px;
+}
+
+h2 {
+  color: var(--brand-dark);
+  font-size: clamp(28px, 4vw, 38px);
+  font-family: Georgia, serif;
+  line-height: 1.3;
+}
+
+.sub {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* ABOUT */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.about-content .eyebrow {
+  color: var(--brand);
+}
+
+.about-content h2 {
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+
+.about-highlight {
+  background: var(--cream);
+  border-left: 4px solid var(--brand);
+  padding: 16px 20px;
+  margin-top: 22px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--brand-dark);
+}
+
+/* MENU */
+
+.menu-section {
+  background: #F1E9DF;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 9px;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 35px rgba(59,41,34,.12);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 24px;
+}
+
+.card h3 {
+  color: var(--brand-dark);
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin-bottom: 9px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.price {
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+/* EXPERIENCE */
+
+.experience {
+  text-align: center;
+  background: var(--brand-dark);
+  color: white;
+  padding: 75px 7%;
+}
+
+.experience h2 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.experience p {
+  color: #E5D6CA;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* REVIEWS */
+
+.reviews {
+  background: var(--paper);
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.quote {
+  background: white;
+  padding: 28px;
+  border-radius: 8px;
+  border: 1px solid #EAE0D6;
+}
+
+.stars {
+  color: var(--brand);
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.quote p {
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 18px;
+}
+
+.quote b {
+  color: var(--brand-dark);
+  font-size: 14px;
+}
+
+/* CONTACT */
+
+.contact-section {
+  background: #F1E9DF;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.contact-card {
+  background: white;
+  padding: 28px 20px;
+  text-align: center;
+  border-radius: 9px;
+}
+
+.contact-icon {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.contact-card h3 {
+  color: var(--brand-dark);
+  margin-bottom: 9px;
+}
+
+.contact-card p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 15px;
+}
+
+.contact-card a {
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+  background: #241A16;
+  color: #D8C9BD;
+  padding: 40px 7%;
+  text-align: center;
+}
+
+.footer-logo {
+  color: white;
+  font-size: 23px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  color: var(--brand);
+}
+
+footer p {
+  font-size: 13px;
+  margin: 7px 0;
+}
+
+footer a {
+  color: #E8C7A5;
+  text-decoration: none;
+}
+
+/* WHATSAPP STYLE BUTTON */
+
+.whats-float {
+  position: fixed;
+  bottom: 23px;
+  right: 23px;
+  width: 55px;
+  height: 55px;
+  background: #25D366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 27px;
+  box-shadow: 0 5px 18px rgba(0,0,0,.2);
+  z-index: 99;
+  transition: transform .3s;
+}
+
+.whats-float:hover {
+  transform: scale(1.12);
+}
+
+/* DARK MODE STYLES */
+
+body.dark-mode {
+  --paper: #211A17;
+  --ink: #F5EDE5;
+  --muted: #C0B2A7;
+  --brand-dark: #E5B98E;
+  --cream: #382A23;
+}
+
+body.dark-mode nav {
+  background: rgba(33,26,23,0.97);
+  border-color: #514036;
+}
+
+body.dark-mode nav ul a {
+  color: #F5EDE5;
+}
+
+body.dark-mode .theme-toggle {
+  background: #382A23;
+  color: #F5EDE5;
+}
+
+body.dark-mode .menu-section,
+body.dark-mode .contact-section {
+  background: #29201C;
+}
+
+body.dark-mode .card,
+body.dark-mode .quote,
+body.dark-mode .contact-card {
+  background: #30251F;
+  border-color: #514036;
+}
+
+body.dark-mode .card h3,
+body.dark-mode .contact-card h3,
+body.dark-mode .quote b,
+body.dark-mode .about-highlight {
+  color: #E5B98E;
+}
+
+body.dark-mode .about-highlight {
+  background: #382A23;
+}
+
+body.dark-mode footer {
+  background: #120E0C;
+}
+
+/* ANIMATION */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media(max-width:850px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:600px) {
+  nav {
+    flex-direction: column;
+    padding: 15px 4%;
+  }
+
+  nav ul {
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  nav ul a {
+    font-size: 12px;
+  }
+
+  .theme-toggle {
+    margin-top: 5px;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 75px 6%;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  section {
+    padding: 60px 6%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image img {
+    height: 280px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a href="#" class="logo">BREW <span>& BLOOM</span></a>
+
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#menu">Our Menu</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <button id="themeToggle" class="theme-toggle" type="button">
+    🌙 Dark Mode
+  </button>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">COFFEE · CONVERSATIONS · COMFORT</span>
+
+    <h1>A Little Coffee,<br>A Lot of Happiness.</h1>
+
+    <p>
+      Discover your perfect coffee moment at Brew & Bloom.
+      Enjoy freshly brewed coffee, handcrafted desserts and
+      delicious bites in a cozy space made for beautiful conversations.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#menu">Explore Our Menu</a>
+      <a class="btn btn-outline" href="#contact">Visit Us</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+
+<section id="about" class="about">
+
+  <div class="about-image">
+    <img
+      src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+      alt="Freshly brewed coffee at Brew and Bloom">
+  </div>
+
+  <div class="about-content">
+    <span class="eyebrow">OUR STORY</span>
+
+    <h2>More Than Just a Cup of Coffee</h2>
+
+    <p>
+      Welcome to Brew & Bloom, a cozy little corner created
+      for coffee lovers and people who enjoy life's simple moments.
+    </p>
+
+    <p>
+      We believe great coffee brings people together.
+      From carefully prepared specialty drinks to freshly
+      made desserts, every visit is designed to make you feel at home.
+    </p>
+
+    <p>
+      Whether you're catching up with friends, enjoying some
+      quiet time or working on your next big idea, there's
+      always a place for you here.
+    </p>
+
+    <div class="about-highlight">
+      "Good coffee. Good company. Beautiful little moments."
+    </div>
+  </div>
+
+</section>
+
+<!-- MENU -->
+
+<section id="menu" class="menu-section">
+
+  <div class="section-heading">
+    <span class="eyebrow">MADE WITH LOVE</span>
+    <h2>Discover Our Favourites</h2>
+    <p class="sub">
+      A little something delicious for every coffee moment.
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85"
+        alt="Specialty coffee">
+
+      <div class="card-content">
+        <h3>Specialty Coffee</h3>
+        <p>
+          Enjoy rich espresso, creamy cappuccino and refreshing
+          cold coffee prepared with carefully selected beans.
+        </p>
+        <span class="price">Starting from ₹99</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85"
+        alt="Delicious cafe desserts">
+
+      <div class="card-content">
+        <h3>Desserts & Bakery</h3>
+        <p>
+          Treat yourself to delicious brownies, cheesecakes
+          and freshly baked pastries made for sweet moments.
+        </p>
+        <span class="price">Starting from ₹129</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img
+        src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=900&q=85"
+        alt="Fresh cafe sandwiches">
+
+      <div class="card-content">
+        <h3>Quick Bites</h3>
+        <p>
+          Explore our tasty sandwiches, creamy pasta and
+          satisfying snacks for any time of the day.
+        </p>
+        <span class="price">Starting from ₹149</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CAFE EXPERIENCE -->
+
+<section class="experience">
+  <span class="eyebrow">YOUR HAPPY PLACE</span>
+  <h2>Slow Down. Sip Coffee. Feel Good.</h2>
+
+  <p>
+    Sometimes all you need is a comfortable seat,
+    your favourite coffee and a little time for yourself.
+    Come make beautiful memories with us.
+  </p>
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews" class="reviews">
+
+  <div class="section-heading">
+    <span class="eyebrow">KIND WORDS</span>
+    <h2>A Little Love From Our Guests</h2>
+    <p class="sub">
+      Sample guest feedback for our cafe concept.
+    </p>
+  </div>
+
+  <div class="review-grid">
+
+    <div class="quote">
+      <div class="stars">★★★★★</div>
+      <p>
+        "The coffee is amazing, the desserts are delicious
+        and the atmosphere is so relaxing. A lovely place
+        to spend an evening!"
+      </p>
+      <b>— Priya, Guest</b>
+    </div>
+
+    <div class="quote">
+      <div class="stars">★★★★★</div>
+      <p>
+        "I love the warm atmosphere and the beautiful
+        coffee presentation. Definitely a place I'd
+        love to visit again!"
+      </p>
+      <b>— Rahul, Guest</b>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact-section">
+
+  <div class="section-heading">
+    <span class="eyebrow">COME SAY HELLO</span>
+    <h2>We'd Love to See You</h2>
+    <p class="sub">
+      Your next favourite coffee moment is waiting for you.
+    </p>
+  </div>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <h3>Visit Our Cafe</h3>
+      <p>
+        Kuniyamuthur, Coimbatore,<br>
+        Tamil Nadu, India.
+        <br><small>Demo business location</small>
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">🕒</div>
+      <h3>Opening Hours</h3>
+      <p>
+        Monday – Sunday<br>
+        8:00 AM – 10:00 PM
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">💬</div>
+      <h3>Get in Touch</h3>
+      <p>
+        For enquiries and table bookings,
+        contact our cafe team.
+      </p>
+      <a href="#contact">Contact Details Coming Soon</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHATSAPP STYLE BUTTON -->
+
+<a
+  class="whats-float"
+  href="#contact"
+  title="Contact Brew and Bloom"
+  aria-label="Contact Brew and Bloom">
+  ☎
+</a>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">BREW <span>& BLOOM</span></div>
+
+  <p>COFFEE · CONVERSATIONS · COMFORT</p>
+
+  <p>
+    © 2026 BREW & BLOOM. All rights reserved.
+  </p>
+
+  <p>
+    Crafted by <b>Lakshaya Ramesh</b> · ApnoAI Web Development Intern
+  </p>
+
+  <p>
+    <a href="https://apnoai.com" target="_blank" rel="noopener">
+      apnoai.com
+    </a>
+    · apnoai internship
+  </p>
+
+  <p>
+    <small>Student portfolio project – fictional cafe concept.</small>
+  </p>
+
+</footer>
+
+<!-- DARK MODE JAVASCRIPT -->
+
+<script>
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", function() {
+  document.body.classList.toggle("dark-mode");
+
+  if (document.body.classList.contains("dark-mode")) {
+    themeToggle.textContent = "☀️ Light Mode";
+  } else {
+    themeToggle.textContent = "🌙 Dark Mode";
+  }
+});
+</script>
+
+</body>
+</html>
